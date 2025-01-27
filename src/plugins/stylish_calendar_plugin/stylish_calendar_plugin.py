@@ -33,7 +33,7 @@ class StylishCalendarPlugin(BasePlugin):
         except locale.Error as e:
             logger.warning(f"Konnte de_DE.UTF-8 nicht setzen: {e}")
 
-    CONFIG_FILE = "/home/inkypi/InkyPi/src/plugins/stylish_calendar_plugin/stylish_calendar_config.json"  # File to store configuration
+    CONFIG_FILE = os.path.expanduser("~/InkyPi/src/plugins/stylish_calendar_plugin/stylish_calendar_config.json")  # File to store configuration
 
     def save_config(self, config):
         """Saves the configuration to a file."""
