@@ -1,0 +1,4 @@
+icalevents
+requests
+openai
+Pillow

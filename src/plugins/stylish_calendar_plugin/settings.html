@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Calendar Einstellungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-input {
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding is included in width */
+            padding: 12px; /* Increased padding for better visibility */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-small {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+        }
+        .form-checkbox input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px; /* Slightly increased padding */
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stylish Calendar Settings</h1>
+
+        <!-- iCal URL -->
+        <div class="form-group">
+            <label for="ical_url" class="form-label">iCal URL:</label>
+            <input 
+                type="text" 
+                id="ical_url" 
+                name="ical_url"
+                placeholder="https://example.com/calendar.ics"
+                value="{{ ical_url | default('') }}" 
+                required
+                class="form-input"
+            >
+        </div>
+
+        <!-- OpenAI API Key -->
+        <div class="form-group">
+            <label for="openai_api_key" class="form-label">OpenAI API Key (optional):</label>
+            <input 
+                type="text" 
+                id="openai_api_key" 
+                name="openai_api_key" 
+                placeholder="sk-XXXX"
+                value="{{ openai_api_key | default('') }}" 
+                class="form-input"
+            >
+            <!-- <div class="form-small">
+                If you'd like to have a summary through ChatGPT, enter your API key here.
+            </div> -->
+        </div>
+
+        <div class="form-small">
+            If you'd like to have a summary through ChatGPT, enter your API key here.
+        </div>
+
+        <!-- Use ChatGPT -->
+        <div class="form-group">
+            <div class="form-checkbox">
+                <input 
+                    type="checkbox" 
+                    id="use_chatgpt" 
+                    name="use_chatgpt"
+                    value="on"
+                    {% if use_chatgpt == "on" %} checked {% endif %} 
+                >
+                <label for="use_chatgpt">Summarize with ChatGPT?</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
